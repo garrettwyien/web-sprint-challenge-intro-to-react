@@ -7,15 +7,28 @@ import Character from './components/Character';
 const App = () => {
   const [characterData, setCharacterData] = useState([]);
 
-    useEffect(() => {
-        axios.get('https://swapi.dev/api/people')
-        .then(res => {
-            console.log(res.data);
-            setCharacterData(res.data);
-        })
-        .catch(err => console.log(err));
-    }, []);
-    console.log(characterData);
+  // This was for an expander for the character details, but I opted to do this by adding listeners that would toggle class.
+  // const [currentCharacter, setCurrentCharacter] = useState(null);
+
+  // const openCharacter = obj => {
+  //   setCurrentCharacter(obj);
+  // };
+
+  // const closeCharacter = () => {
+  //   setCurrentCharacter(null);
+  // };
+
+  useEffect(() => {
+      axios.get('https://swapi.dev/api/people')
+      .then(res => {
+          console.log(res.data);
+          setCharacterData(res.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+
+    
 
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.

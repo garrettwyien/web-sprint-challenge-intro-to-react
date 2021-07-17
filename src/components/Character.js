@@ -1,12 +1,19 @@
 // Write your Character component here
 import React from 'react';
 
+
 const Character = (props) => {
     const { cardData } = props;
+    function expander(id) {
+        const object = document.getElementById(`${id}`);
+        object.classList.toggle("hidden");
+    };
     return (
             <div className='character-container'>
+                <button className='nameplate' onClick={() => expander(cardData.name)}>
                 <h2>{cardData.name}</h2>
-                <div className='dropdown'>
+                </button>
+                <div className='dropdown hidden' id={cardData.name}>
                     <h2>Gender: {cardData.gender}</h2>
                     <h2>Height: {cardData.height}</h2>
                     <h2>Mass: {cardData.mass}</h2>
