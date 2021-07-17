@@ -81,6 +81,14 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+React JS is a library of predefined functions and corresponding objects that synthesizes JS, HTML, and CSS to allow us to construct JSX components by streamlining the tedium of strictly adhering to JS syntax out of the process. We are able to use it to more efficiently and to more intuitively write the HTML we want our JS app to prescribe to the DOM. 
+
 1. Describe component state.
+Component state is data to be translated for HTML use in the form of a JS object that has a defined initial value and is managed/created locally within a component. State is mutable and the component it is nested in should be able to handle changes to the state or change the state itself. 
+
 1. Describe props.
+Props, like state, are JS objects that represent data for the purpose of use in HTML. However, their values are not created within the component. Instead, their values are passed to them like arguments to a function either from above. 
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+Side effects are state changes that are visible from outside of its function's return. For example, a console.log() within a function. If we want to sync side effects with state/prop changes in order to prevent potential infinite loops, we can pass a dependency array to the effect hook as a second argument. This will cause the effect hook to fire initially when the component first mounts, but then again only when a specified change occurs or not at all. 
+

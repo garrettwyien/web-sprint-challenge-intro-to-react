@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import Character from './components/Character';
-import { ThemeProvider } from 'styled-components';
+
+
 
 
 const App = () => {
@@ -22,12 +23,14 @@ const App = () => {
   useEffect(() => {
       axios.get('https://swapi.dev/api/people')
       .then(res => {
-          console.log(res.data);
           setCharacterData(res.data);
       })
       .catch(err => console.log(err));
   }, []);
-
+  
+  for (let i = 0; i < characterData.length; i++) {
+    characterData[i]['identification'] = i
+  };
 
     
 
