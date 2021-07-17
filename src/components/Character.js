@@ -1,19 +1,40 @@
 // Write your Character component here
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledCharacterContainer = styled.div`
+    background-color: red;
+    width: 60%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow:column;
+    align-content: center;
+    border-radius: 8px;
+
+    .dropdown {
+        overflow: hidden;
+        transition: max-height 1s;
+        max-height: 0;
+    }
+
+    .dropdown.expand {
+        max-height: 355.250px;
+    }
+`
 
 
 const Character = (props) => {
     const { cardData } = props;
     function expander(id) {
         const object = document.getElementById(`${id}`);
-        object.classList.toggle("hidden");
+        object.classList.toggle("expand");
     };
     return (
-            <div className='character-container'>
+            <StyledCharacterContainer>
                 <button className='nameplate' onClick={() => expander(cardData.name)}>
                 <h2>{cardData.name}</h2>
                 </button>
-                <div className='dropdown hidden' id={cardData.name}>
+                <div className='dropdown' id={cardData.name}>
                     <h2>Gender: {cardData.gender}</h2>
                     <h2>Height: {cardData.height}</h2>
                     <h2>Mass: {cardData.mass}</h2>
@@ -22,7 +43,7 @@ const Character = (props) => {
                     <h2>Hair color: {cardData.hair_color}</h2>
                     <h2>Skin color: {cardData.skin_color}</h2>
                 </div>
-            </div>
+            </StyledCharacterContainer>
             )};
 
 export default Character;
